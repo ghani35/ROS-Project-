@@ -78,7 +78,7 @@ int i1=300;
 int i2=420;
 int i3=0;
 //the min is used to returne the most closest obstacl in eache range 
-float min1,min2,min3,min4,min5,min6;
+float min1,min2,min3;
 min1=msg->ranges[300];
 min2=msg->ranges[660];
 min3=msg->ranges[0];
