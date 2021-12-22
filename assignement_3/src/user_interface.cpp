@@ -1,3 +1,5 @@
+//this node is used to publish the entred value by the use through a costumized message
+
 #include "ros/ros.h"
 #include "assignement_3/User.h"
 #include <sstream>
