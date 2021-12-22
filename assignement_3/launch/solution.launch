@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find final_assignment)/launch/move_base.launch" /> 
+    <include file="$(find final_assignment)/launch/simulation_gmapping.launch" /> 
+    <node pkg="assignement_3" type="u_interface" name="user_interface" output="screen" launch-prefix="xterm -e"  />
+    <node pkg="assignement_3" type="sol_3" name="solution" output="screen" launch-prefix="xterm -e"  />
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="key_board" output="screen" launch-prefix="xterm -e"  />
+   
+</launch>
