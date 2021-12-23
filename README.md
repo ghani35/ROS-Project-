@@ -1,6 +1,6 @@
 # Decription of the program
 
-* run by launching a launche file to run diffrent nodes and other lauche files.
+* run by launching a launche file < solution.launche > to run diffrent nodes and other lauche files.
   * the nodes : 
     * robot_controller
     * User_Interface
@@ -12,10 +12,10 @@
 ## Pseudo code of User_Interface
 
 * declare variables x,y,mode
-* initialize and declare publisher pub
+* initialize and declare publisher < pub >
 * print the entred mode 
 * while (roscore is running) 
-  * declare variable of type User.msg 
+  * declare variable of type < User.msg >  
   * print some messages on the screen
   * if ( mode 1 ) 
     * ask the user to enter a target 
@@ -32,25 +32,25 @@
   * pub_cancel
   * pub_vel
   * pub_goal
-* subscriber callback function read_velocity
-* subscriber callback function user_input
+* subscriber callback function < read_velocity >
+* subscriber callback function < user_input >
   * if ( mode 1 ) 
     * print a message 
-    * publish the goal pub_goal
+    * publish the goal < pub_goal >
   * if ( mode 2 )
     * print a message
-    * cancel the target pub_cancel
+    * cancel the target < pub_cancel >
   * if ( mode 3 )
     * print a message
   * if ( mode 4 )
     * print a message
-    * cancel the target pub_cancel
+    * cancel the target < pub_cancel >
 * subscriber callback function robotcallback
   * decalre i1,i2,i3
   * declare min1,min2,min3  to store the minimum distance in front,left,right
   * for loops to calculate min1,min2,min3
   * if ( mode 3 ) 
-    * if ( close obstacle in front robot go forward )
+    * if ( close obstacle in front and robot go forward )
       * publish 0 linear velocity
     * if ( close obstacle in left and robot turn left )
       * publish 0 angular velocity
