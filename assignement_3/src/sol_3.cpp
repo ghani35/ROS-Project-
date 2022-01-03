@@ -7,8 +7,6 @@
 #include "move_base_msgs/MoveBaseActionGoal.h"
 #include "actionlib_msgs/GoalID.h"
 #include "actionlib_msgs/GoalStatusArray.h"
-#include <actionlib/client/simple_action_client.h>
-#include <actionlib/client/terminal_state.h>
 
 int input;  // store the mode entred by the user 
 int status; // store the status of the goal (reachable or not)
