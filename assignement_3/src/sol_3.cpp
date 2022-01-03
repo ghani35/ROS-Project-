@@ -29,13 +29,13 @@ status= msg->status_list[0].status;
 }
 if(input ==1){
     if(status == 1){
-    printf(" Goal is under proccesing   status = %d \n",status);
+      printf(" Goal is under proccesing   status = %d \n",status);
     	}
     if(status == 3){
-    printf(" Goal Reached!!  status = %d \n",status);
+      printf(" Goal Reached!!  status = %d \n",status);
     	}
     if(status == 4){
-    printf(" Goal is not Reacheable   status = %d \n",status);
+      printf(" Goal is not Reacheable   status = %d \n",status);
     	}
   }
 }
@@ -55,41 +55,41 @@ void user_input(const assignement_3::User::ConstPtr& msg)
  y= msg->y;  
 
  if(input==1){
- printf("You are in Mode (1),Reaching a goal  \n");
- printf("you Can cancel by pressing '4' \n");
- move_base_msgs::MoveBaseActionGoal target;
- target.goal.target_pose.pose.position.x = x;
- target.goal.target_pose.pose.position.y = y;
- target.goal.target_pose.header.frame_id = "map";
- target.header.frame_id = "map";
- target.goal.target_pose.pose.orientation.w = 1.0;
- pub_goal.publish(target); 
+   printf("You are in Mode (1),Reaching a goal  \n");
+   printf("you Can cancel by pressing '4' \n");
+   move_base_msgs::MoveBaseActionGoal target;
+   target.goal.target_pose.pose.position.x = x;
+   target.goal.target_pose.pose.position.y = y;
+   target.goal.target_pose.header.frame_id = "map";
+   target.header.frame_id = "map";
+   target.goal.target_pose.pose.orientation.w = 1.0;
+   pub_goal.publish(target); 
  }
  
  if(input==2){
- printf("You are in Mode (2), NOT ASSISTED Driving  \n");
+   printf("You are in Mode (2), NOT ASSISTED Driving  \n");
  // publish to this topic an empty msg to cancel the goal 
- actionlib_msgs::GoalID cancel;
- pub_cancel.publish(cancel);
+   actionlib_msgs::GoalID cancel;
+   pub_cancel.publish(cancel);
  }
- if(input==3){printf("You are in Mode (3), ASSISTED Driving \n");}
+ if(input==3){
+   printf("You are in Mode (3), ASSISTED Driving \n");
+ }
  if(input==4){
- printf("canceling the target \n");
+   printf("canceling the target \n");
  // publish to this topic an empty msg to cancel the goal 
- actionlib_msgs::GoalID cancel;
- pub_cancel.publish(cancel);
+   actionlib_msgs::GoalID cancel;
+   pub_cancel.publish(cancel);
  }
 }
 
 //subscriber to scan topic
 void robotCallback(const sensor_msgs::LaserScan::ConstPtr& msg)
 {
-
-
 // the if statement used to cancel the target if user enters Mode2
 if(input==2){ 
-	actionlib_msgs::GoalID cancel;
- 	pub_cancel.publish(cancel);
+  actionlib_msgs::GoalID cancel;
+  pub_cancel.publish(cancel);
  	}
 
 // these variables are used to declare the initial index of each range  
@@ -160,7 +160,7 @@ ros::init(argc, argv, "pubsub");
 ros::NodeHandle nh;
 ros::Subscriber sub_scan = nh.subscribe("/scan", 10, robotCallback);
 ros::Subscriber sub_vel = nh.subscribe("/cmd_vel", 10, read_velocity);
-ros::Subscriber sub3 = nh.subscribe("/move_base/status", 100, read_status);
+ros::Subscriber sub_goal_status = nh.subscribe("/move_base/status", 100, read_status);
 ros::Subscriber sub_user = nh.subscribe("user_topic", 10, user_input);
 pub_goal = nh.advertise<move_base_msgs::MoveBaseActionGoal> ("/move_base/goal", 100); 
 pub_cancel = nh.advertise<actionlib_msgs::GoalID> ("/move_base/cancel", 100); 
