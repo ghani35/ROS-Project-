@@ -6,10 +6,12 @@
 #include <sstream>
 #include "move_base_msgs/MoveBaseActionGoal.h"
 #include "actionlib_msgs/GoalID.h"
-//#include "actionlib_msgs/GoalStatusArray.h"
+#include "actionlib_msgs/GoalStatusArray.h"
+#include <actionlib/client/simple_action_client.h>
+#include <actionlib/client/terminal_state.h>
 
 int input;  // store the mode entred by the user 
-//int status;
+int status; // store the status of the goal (reachable or not)
 
 float x,y,linear_x,angular_z;
 
@@ -17,10 +19,26 @@ ros::Publisher pub_goal;
 ros::Publisher pub_cancel;	//cancel the target
 ros::Publisher pub_vel;	//publish a velocity to cmd_vel
 
+//subscriber callback to goal status array
+void read_status(const actionlib_msgs::GoalStatusArray::ConstPtr& msg){
 
-/*void read_status(const actionlib_msgs::GoalStatusArray::ConstPtr& msg){
+//if_condition is used to avoid the problem when the status.list is empty (not allocated memory)
+ 
+if (!msg->status_list.empty()){
 status= msg->status_list[0].status;
-}*/
+}
+if(input ==1){
+    if(status == 1){
+    printf(" Goal is under proccesing   status = %d \n",status);
+    	}
+    if(status == 3){
+    printf(" Goal Reached!!  status = %d \n",status);
+    	}
+    if(status == 4){
+    printf(" Goal is not Reacheable   status = %d \n",status);
+    	}
+  }
+}
 
 //subscriber callback to topic cmd_vel
 void read_velocity(const geometry_msgs::Twist::ConstPtr& msg){
@@ -66,7 +84,8 @@ void user_input(const assignement_3::User::ConstPtr& msg)
 //subscriber to scan topic
 void robotCallback(const sensor_msgs::LaserScan::ConstPtr& msg)
 {
-  //if(input ==1){ printf("status = %d \n",status);}
+
+
 // the if statement used to cancel the target if user enters Mode2
 if(input==2){ 
 	actionlib_msgs::GoalID cancel;
@@ -78,7 +97,7 @@ int i1=300;
 int i2=420;
 int i3=0;
 //the min is used to returne the most closest obstacl in eache range 
-float min1,min2,min3;
+float min1,min2,min3,min4,min5,min6;
 min1=msg->ranges[300];
 min2=msg->ranges[660];
 min3=msg->ranges[0];
@@ -141,7 +160,7 @@ ros::init(argc, argv, "pubsub");
 ros::NodeHandle nh;
 ros::Subscriber sub_scan = nh.subscribe("/scan", 10, robotCallback);
 ros::Subscriber sub_vel = nh.subscribe("/cmd_vel", 10, read_velocity);
-//ros::Subscriber sub3 = nh.subscribe("/move_base/status", 100000, read_status);
+ros::Subscriber sub3 = nh.subscribe("/move_base/status", 100, read_status);
 ros::Subscriber sub_user = nh.subscribe("user_topic", 10, user_input);
 pub_goal = nh.advertise<move_base_msgs::MoveBaseActionGoal> ("/move_base/goal", 100); 
 pub_cancel = nh.advertise<actionlib_msgs::GoalID> ("/move_base/cancel", 100); 
