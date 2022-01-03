@@ -27,7 +27,7 @@ if(mode==1){
     printf("you are in mode 1 please enter a target  \n");
     scanf("%f", &x);
     scanf("%f", &y);
-    printf("your target is (%f , %f)\n",&x , &y);
+    printf("your target is (%f , %f)\n",x , y);
      }
 if(mode==4){
     printf("Target Canceled");
