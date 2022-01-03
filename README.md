@@ -11,7 +11,10 @@
 
 ## Pseudo code of User_Interface
 
-* declare variables x,y,mode
+* declare variables 
+  * x           < float to stor the x postiion of the target >
+  * y           < float to stor the y position of the target >
+  * mode        < integer to store the value of the mode entred > 
 * initialize and declare publisher < pub >
 * print the entred mode 
 * while (roscore is running) 
@@ -39,9 +42,9 @@
   * pub_vel
   * pub_goal
  
-* subscriber callback function < read_velocity >
+* subscriber callback function to topic /cmd_vel < read_velocity >
 
-* subscriber callback to goal status array < read_status > 
+* subscriber callback function to topic /move_base/status < read_status > 
   * if (status_list(0).status is not empty)
     * read the status filed of the message and stor it variable int status
   * if ( input = 1 )
@@ -52,7 +55,7 @@
     * if ( status = 4 )
       * Goal is not reacheable 
 
-* subscriber callback function < user_input >
+* subscriber callback function to topic /user_topic < user_input >
   * if ( mode 1 ) 
     * print a message 
     * publish the goal < pub_goal >
@@ -65,7 +68,7 @@
     * print a message
     * cancel the target < pub_cancel >
     
-* subscriber callback function robotcallback
+* subscriber callback function to topic /scan < robotcallback > 
   * decalre i1,i2,i3
   * declare min1,min2,min3  to store the minimum distance in front,left,right
   * for loops to calculate min1,min2,min3
