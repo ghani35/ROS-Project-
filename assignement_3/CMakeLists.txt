@@ -138,7 +138,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(User_Interface src/user_interface.cpp)
-add_executable(robot_controller src/sol_3.cpp)
+add_executable(robot_controller src/controller.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
