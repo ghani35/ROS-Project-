@@ -17,14 +17,16 @@
  * 
  * Description:  
  * Control the robot depending on the **mode** entred by the user.
+ * There are **four** modes: *mode1*, *mode2*, *mode3* and *mode4*
  * If the user choose **mode1** he must set a goal point. The goal 
- * can be *canceled* by pressing "4" that takes you to **mode4**
- * and **mode3 and mode 4** are for driving the robot by the *keyboard*.
+ * can be *canceled* by pressing "4" that takes you to **mode4**, 
+ * in this mode the robot stops and do nothing, However 
+ * **mode2** and **mode3** are used for driving the robot by the *keyboard*.
  *
  * 
- * @attention This node is run by the launch file **solution.launch**
- * @note In order for this node to **work** correctly,it is neccessary
- * @note to have other *packages* and *nodes* running concurrently.
+ * @note This node must be run at the same time with the node @cite  user_interface.cpp
+ * @note To make sure everything work correctly you can run the the launch file,
+ * @note **Solution.launch**.
  * @see user_interface.cpp
  **/
 
@@ -39,12 +41,12 @@
 #include "actionlib_msgs/GoalID.h"
 #include "actionlib_msgs/GoalStatusArray.h"
 
-int input;  ///< Stores the mode entred by the user 1,2,3 or 4.  
-int status; ///< Stores the status of the goal (reachable or not), returned by the *read_status* callback funtion.
-float x;///< Stores the x-axis coordinate of the goal of the form (x,y).
-float y;///< Stores the y-axis coorfinate of the goal of the form (x,y).
-float linear_x;///< Stores the linear velocity published to the robot.
-float angular_z;///< Stores the angular velocity published to the tobot.
+int input;  ///< Holds the mode entred by the user 1,2,3 or 4.  
+int status; ///< Holds the status of the goal (reachable or not), returned by the *read_status* callback funtion.
+float x;///< Holds the x-axis coordinate of the goal of the form (x,y).
+float y;///< Holds the y-axis coorfinate of the goal of the form (x,y).
+float linear_x;///< Holds the linear velocity published to the robot.
+float angular_z;///< Holds the angular velocity published to the tobot.
 move_base_msgs::MoveBaseActionGoal target;///< Action used to set the goal point in case the robot is in mode1 
 actionlib_msgs::GoalID cancel; ///< Action used to cancel the goal.
 
@@ -61,12 +63,12 @@ ros::Subscriber sub_user;///< Global subscriber to the topic */user_topic*, to r
 /**
  * @brief Callback function of the subscriber sub_goal
  * @see sub_goal_status
- * @param msg actionlib message stores the goal status
+ * @param msg actionlib message holds the goal status
  * @return nothing
  * @attention in order to know if the goal is not reacheable 
- * @attention the whole map should be discovered
+ * @attention the whole map should be discovered 
  * 
- * @note This function prints the status of the goal 
+ * @note This function prints one of the possible status of the goal 
  * @note **reacheable** or **not reacheable** or **under proccesing**
  * 
  * 
@@ -95,7 +97,7 @@ if(input ==1){
 /**
  * @brief Callback function of the subscriber sub_vel 
  * @see sub_vel  
- * @param msg stores the angular and linear velocity of the robot
+ * @param msg holds the angular and linear velocity of the robot
  * @return nothing 
  * 
  **/
@@ -104,21 +106,22 @@ linear_x= msg->linear.x;
 angular_z= msg->angular.z;
 }
 
-//subscriber callback of topic(user_topic) containing the data entred by the user
+//subscriber callback of topic(user_topic) holding the data the data entred by the user
 
 /**
  * @brief Callback function of the subscriber sub_user 
  * @see sub_user
- * @param msg the message entred by the user 
+ * @param msg the message entred by the user that holds the mode
  * 
  * @return nothing
  * 
- * @note Prints the mode choosen by the user. 
+ * @note Prints the mode choosen by the user **1,2,3, or 4** 
  * @attention msg: is a customized message has the following format: 
  * @attention int32 user
  * @attention float32 x
  * @attention float32 y 
- * @warning It is called **only** when the user enters new data.
+ * @warning This callback function t is called **only** when the user enters new data.
+ * @warning For example changing the mode 
  **/
 void user_input(const assignement_3::User::ConstPtr& msg)
 {
@@ -154,13 +157,15 @@ void user_input(const assignement_3::User::ConstPtr& msg)
 
 
 /**
- * @brief Callback function of the subscriber sub_scan 
+ * @brief Callback function of the subscriber sub_scan, 
  * @see sub_scan  
  * @param msg of type LaserScan 
  * 
  * @return nothing
  * 
- * @note Contains the code of all the 4 **modes** entred by the user 
+ * @note Used as a continous loop of the control function, because 
+ * @note of the high frequency,  
+ * @note It holds the code of all the 4 **modes** entred by the user 
  * @warning It is called contineously because the robot publishes 
  * @warning data to the /LaserScan topic very rapidely 
  * @warning this is why the main part of the code is putted her.
