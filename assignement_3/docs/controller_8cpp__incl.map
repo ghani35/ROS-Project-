@@ -1,5 +1,5 @@
-<map id="src/controller.cpp" name="src/controller.cpp">
-<area shape="rect" id="node1" title="This is the controller node." alt="" coords="639,5,773,32"/>
+<map id="controller.cpp" name="controller.cpp">
+<area shape="rect" id="node1" title="This is the controller node." alt="" coords="651,5,761,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,87,84,114"/>
 <area shape="rect" id="node3" title=" " alt="" coords="109,87,298,114"/>
 <area shape="rect" id="node4" title=" " alt="" coords="323,87,489,114"/>
