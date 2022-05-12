@@ -1,0 +1,98 @@
+\hypertarget{user__interface_8cpp}{}\doxysection{user\+\_\+interface.\+cpp File Reference}
+\label{user__interface_8cpp}\index{user\_interface.cpp@{user\_interface.cpp}}
+
+
+User interface node to allow the user to {\bfseries{choose a mode}} and {\bfseries{set a goal}}  
+
+
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}assignement\+\_\+3/\+User.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for user\+\_\+interface.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{user__interface_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{user__interface_8cpp_a5ea466849f21e6c2be4ef9b2eb8868d3}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em main function \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{user__interface_8cpp_a350594df3e8f6948c8462edfd41ce086}\label{user__interface_8cpp_a350594df3e8f6948c8462edfd41ce086}} 
+ros\+::\+Publisher \mbox{\hyperlink{user__interface_8cpp_a350594df3e8f6948c8462edfd41ce086}{pub}}
+\begin{DoxyCompactList}\small\item\em Global publisher to the topic {\itshape /user\+\_\+topic}, to publish the mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+User interface node to allow the user to {\bfseries{choose a mode}} and {\bfseries{set a goal}} 
+
+\begin{DoxyAuthor}{Author}
+Bakour Abdelghani \href{mailto:bakourabdelghani1999@gmail.com}{\texttt{ bakourabdelghani1999@gmail.\+com}} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+25/12/2021
+\end{DoxyDate}
+Description\+: This node asks the user to enter an {\bfseries{integer}} value. each integer value points to a different {\bfseries{mode}}
+
+Publishers to\+:~\newline
+ /user\+\_\+topic
+
+\begin{DoxyNote}{Note}
+These are the mode\textquotesingle{}s reprentations of each integer value\+: 
+
+1 \+: Set a goalpiont 
+
+2 \+: Drive the robot by the keyboard {\bfseries{Not assestive}} 
+
+3 \+: Drive the robot by hte keyboard {\bfseries{Assistive}} 
+
+4 \+: Cancel the goal
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+in case the user chose mode {\bfseries{1}}, he must {\itshape set a goal point}
+\end{DoxyWarning}
+\begin{DoxyAttention}{Attention}
+The goal point is in {\bfseries{2D}} 
+
+has the form (x,y), while x and y are floats 
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{controller_8cpp}{controller.\+cpp}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{user__interface_8cpp_a5ea466849f21e6c2be4ef9b2eb8868d3}\label{user__interface_8cpp_a5ea466849f21e6c2be4ef9b2eb8868d3}} 
+\index{user\_interface.cpp@{user\_interface.cpp}!main@{main}}
+\index{main@{main}!user\_interface.cpp@{user\_interface.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+main function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & \\
+\hline
+{\em argv} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+It prints the {\bfseries{mode}} that has been chosen 
+
+and the coordinates of the goal point if it is set 
+\end{DoxyNote}
