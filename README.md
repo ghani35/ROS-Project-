@@ -26,8 +26,8 @@ you can start the simulation by following these steps
  
  ### Starting jupyter notebook 
  you can start the jupyter notebook by 
-  1- make sure you are in /work_space/assignment3
-  2- excute the command juputer notebook --allow-root
+* 1- make sure you are in /work_space/assignment3
+* 2- excute the command juputer notebook --allow-root
   
 
 ## Documentation: Doxygen
