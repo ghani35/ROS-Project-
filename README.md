@@ -2,10 +2,10 @@
 This is a ROS architecture for the control of a mobile robot in the Gazebo environment. The software relies on the move_base and gmapping packages for localizing the robot and plan the motion. The architecture gets the user request, and lets the robot execute one of the pre-defined behaviors accordingly, along with Simulataneous Localization and Mapping (SLAM), path planning, and collision avoidance.
 
 The user can choose among 4 possible modalities:
-*mode 1: the user can set a target for the robot to reach
-*mode 2: the user can drive the robot by the keyboard (relying on the package teleop_twist_keyboard)
-*mode 3: the same as mode 2, but in this case the robot gives you some help, and does not let you crash the walls 
-*mode 4: the user can cancel the goal at any time 
+* mode 1: the user can set a target for the robot to reach
+* mode 2: the user can drive the robot by the keyboard (relying on the package teleop_twist_keyboard)
+* mode 3: the same as mode 2, but in this case the robot gives you some help, and does not let you crash the walls 
+* mode 4: the user can cancel the goal at any time 
 
 The user interface is impelemnted in both **cpp code**, located in the source file, and in **juputer notebook**.
 As well as the whole architectue of the assignment is documented by **doxygen**
