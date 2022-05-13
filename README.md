@@ -13,10 +13,10 @@ As well as the whole architectue of the assignment is documented by **doxygen**
 ## Instructions for running the project
 ### Starting the simulation
 you can start the simulation by following these steps
-  1- Make sur to be in the source file of your workspace /work_space/src
-  2- clone the repository https://github.com/ghani35/assignement_3.git
-  3- build the workspace /catkin_make
-  4- launch the launch file **solution.launch** by roslaunch solution.launch 
+* 1- Make sur to be in the source file of your workspace /work_space/src
+* 2- clone the repository https://github.com/ghani35/assignement_3.git
+* 3- build the workspace /catkin_make
+* 4- launch the launch file **solution.launch** by roslaunch solution.launch 
      by launching the file, the follwing things starts automatically 
      * rviz
      * Gazebo
