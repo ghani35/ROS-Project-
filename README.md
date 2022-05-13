@@ -40,8 +40,9 @@ equations, visualizations, and text.
 
 The user interface of the final assignemnemnt is implemented in a different way using Jupyter notebook, to have a better 
 graphical user interface for cotrolling the robot, as well as a better visualization of the data such as: 
-*a line graph of the position of the robot*, *a line graph of the distance of the obstacles*, and *a bar graph of the reached 
-and unreached goals* 
+* line graph of the position of the robot
+* line graph of the distance of the obstacles 
+* a bar graph of the reached and unreached goals
 
 
 ## Decription of files
