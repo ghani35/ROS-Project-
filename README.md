@@ -14,9 +14,9 @@ As well as the whole architectue of the assignment is documented by **doxygen**
 ### Starting the simulation
 you can start the simulation by following these steps
 * 1- Make sur to be in the source file of your workspace /work_space/src
-* 2- clone the repository https://github.com/ghani35/assignement_3.git
-* 3- build the workspace /catkin_make
-* 4- launch the launch file **solution.launch** by roslaunch solution.launch 
+* 2- clone the repository <git clone https://github.com/ghani35/assignement_3.git>
+* 3- build the workspace by <catkin_make>
+* 4- launch the launch file **solution.launch** by <roslaunch solution.launch> 
      by launching the file, the follwing nodes starts automatically 
      * rviz
      * Gazebo
@@ -27,12 +27,12 @@ you can start the simulation by following these steps
  ### Starting jupyter notebook 
  you can start the jupyter notebook by 
 * 1- make sure you are in /work_space/assignment3
-* 2- excute the command juputer notebook --allow-root
+* 2- excute the command <juputer notebook --allow-root>
   
 
 ## Documentation: Doxygen
 The architecture of the assignment is documented by using Doxygen, you can access the documentations by this link 
-https://ghani35.github.io/assignement_3/
+<https://ghani35.github.io/assignement_3/>
 
 ## Jupyter Notebook 
 The Jupyter Notebook is an open source web application that you can use to create and share documents that contain live code,
