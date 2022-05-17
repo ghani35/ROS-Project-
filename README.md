@@ -35,15 +35,16 @@ The architecture of the assignment is documented by using Doxygen, you can acces
 <https://ghani35.github.io/assignement_3/>
 
 ## Jupyter Notebook 
+### Definition
 The Jupyter Notebook is an open source web application that you can use to create and share documents that contain live code,
 equations, visualizations, and text.
 
-The user interface of the final assignemnemnt is implemented in a different way using Jupyter notebook, to have a better 
+### Assignment 
+Write a python code in jupyter notebook to develop a quite similar user interface of the final assignment, to have a better 
 graphical user interface for cotrolling the robot, as well as a better visualization of the data such as: 
 * line graph of the position of the robot
 * line graph of the distance of the obstacles 
 * a bar graph of the reached and unreached goals
-
 
 ## Decription of files
 ### Simulator: Gazebo
