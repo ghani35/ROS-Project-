@@ -32,7 +32,7 @@ you can start the simulation by following these steps
 
 ## Documentation: Doxygen
 The architecture of the assignment is documented by using Doxygen, you can access the documentations by this link 
-https://ghani35.github.io/assignement_3/ 
+https://ghani35.github.io/assignement_3/
 
 ## Jupyter Notebook 
 The Jupyter Notebook is an open source web application that you can use to create and share documents that contain live code,
