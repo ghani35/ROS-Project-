@@ -17,7 +17,7 @@ you can start the simulation by following these steps
 * 2- clone the repository https://github.com/ghani35/assignement_3.git
 * 3- build the workspace /catkin_make
 * 4- launch the launch file **solution.launch** by roslaunch solution.launch 
-     by launching the file, the follwing things starts automatically 
+     by launching the file, the follwing nodes starts automatically 
      * rviz
      * Gazebo
      * user_interface.cpp
