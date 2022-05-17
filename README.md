@@ -14,7 +14,7 @@ As well as the whole architectue of the assignment is documented by **doxygen**
 ### Starting the simulation
 you can start the simulation by following these steps
 * 1- Make sur to be in the source file of your workspace /work_space/src
-* 2- clone the repository <git clone https://github.com/ghani35/assignement_3.git>
+* 2- clone the repository <git clone https://github.com/ghani35/assignement_3.git >
 * 3- build the workspace by <catkin_make>
 * 4- launch the launch file **solution.launch** by <roslaunch solution.launch> 
      by launching the file, the follwing nodes starts automatically 
